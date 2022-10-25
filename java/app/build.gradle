@@ -4,15 +4,14 @@ apply plugin: 'fullstory'
 
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "29.0.3"
+    compileSdkVersion 32
     dataBinding {
         enabled = true
     }
     defaultConfig {
         applicationId "com.fullstorydev.shoppedemo"
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion 32
         versionCode 10
         versionName "1.0.10"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -38,6 +37,7 @@ android {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
     }
+    namespace 'com.fullstorydev.shoppedemo'
 }
 
 dependencies {
@@ -61,25 +61,7 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espresso_version"
 }
 
-Properties properties = new Properties()
-if (project.rootProject.file('local.properties').canRead()) {
-    properties.load(project.rootProject.file("local.properties").newDataInputStream())
-}
-
 fullstory {
-    // add your "org" in local.properties, or set it here directly
-    org properties.getProperty('org')
-    if(org == null) throw new GradleException('ORG ID is empty, will not record! Please set org in build.gradle(app) or local.properties!')
-
-    // enable variants that you want to be instrumented by FS ( default to 'release' if not set )
-    if(properties.getProperty('enabledVariants') != null) {
-        enabledVariants properties.getProperty('enabledVariants')
-    }
-    // remove below line if you intend to instrument FS to only release builds
-    if(enabledVariants == null) throw new GradleException('enabledVariants is empty, will only record for release builds! If this is intentional, please remove this GradleException in build.gradle(app), otherwise please enabled debug!')
-
-    // please do not set server value here or in local.properties
-    if(properties.getProperty('server') != null){
-        server properties.getProperty('server')
-    }
+    org 'PSYET'
+    enabledVariants 'all'
 }

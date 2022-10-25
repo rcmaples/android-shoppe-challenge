@@ -2,6 +2,7 @@ package com.fullstorydev.shoppedemo.ui.main;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -43,6 +44,12 @@ public class MainActivity extends AppCompatActivity implements FSOnReadyListener
                 .build();
         NavigationUI.setupActionBarWithNavController(this, mNavController, mAppBarConfiguration);
         FS.setReadyListener(this);
+    }
+
+    @Override
+    public void onReady(FSSessionData sessionData) {
+        String fsUrl = sessionData.getCurrentSessionURL();
+        Log.d("fullstory", "FS URL is " + fsUrl);
     }
 
     @Override
@@ -92,11 +99,5 @@ public class MainActivity extends AppCompatActivity implements FSOnReadyListener
         if(imm != null){
             imm.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         }
-    }
-
-    @Override
-    public void onReady(FSSessionData sessionData) {
-        String fsUrl = sessionData.getCurrentSessionURL();
-        // do stuff with session URL (for example send to desired integrations, etc)
     }
 }
