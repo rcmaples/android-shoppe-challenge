@@ -9,9 +9,9 @@ buildscript {
     dependencies {
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
-        classpath 'com.android.tools.build:gradle:7.0.3'
-        // always ue the latest FS version
-        classpath 'com.fullstory:gradle-plugin-local:1.19.1'
+        classpath 'com.android.tools.build:gradle:7.3.1'
+        // Release notes: https://help.fullstory.com/hc/en-us/articles/4412766845591-FullStory-for-Mobile-Apps-Release-Notes
+        classpath 'com.fullstory:gradle-plugin-local:1.20.0'
     }
 }
 
@@ -27,11 +27,11 @@ task clean(type: Delete) {
 }
 
 ext {
-    room_version = "2.3.0"
-    nav_version = "2.3.5"
+    room_version = "2.4.3"
+    nav_version = "2.5.3"
     lifecycle_version = "2.2.0"
-    constraintlayout_version = "2.1.1"
-    appcompat_version = "1.3.1"
+    constraintlayout_version = "2.1.4"
+    appcompat_version = "1.5.1"
     ext_junit_version = "1.1.3"
     junit_version = "4.12"
     espresso_version = "3.4.0"
@@ -39,5 +39,5 @@ ext {
     gson_version ="2.8.6"
     glide_version = "4.11.0"
     multidex_version = "2.0.1"
-    material_version = "1.4.0"
+    material_version = "1.7.0"
 }
