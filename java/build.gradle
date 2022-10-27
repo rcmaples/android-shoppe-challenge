@@ -10,8 +10,7 @@ buildscript {
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
         classpath 'com.android.tools.build:gradle:7.3.1'
-        // Release notes: https://help.fullstory.com/hc/en-us/articles/4412766845591-FullStory-for-Mobile-Apps-Release-Notes
-        classpath 'com.fullstory:gradle-plugin-local:1.20.0'
+        classpath 'com.fullstory:gradle-plugin-local:1.29.0'
     }
 }
 
